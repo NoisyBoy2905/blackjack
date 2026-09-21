@@ -113,7 +113,15 @@ def main():
     deck = Deck()
     deck.shuffle()
 
-    chips = 100
+
+    chips = 0 
+    while chips <= 0:
+        try:
+            chips = int(input(Fore.CYAN + "How many Chips to start with: "))
+        except ValueError:
+            print(Fore.RED + "Enter a number!")
+
+    highest = chips
 
     while keep_playing:
         clear_screen()
@@ -128,8 +136,14 @@ def main():
 
         bet = 0
         while bet <= 0 or bet > chips:
-            try:
-                bet = int(input(Fore.CYAN + "How much would you like to bet? ").strip())
+
+            raw = input(Fore.CYAN + "How much would you like to bet? (or press Q to Quit) ").strip().upper()
+            if raw == "Q":
+                keep_playing = False
+                break
+
+            try: 
+                bet = int(raw)
             except ValueError:
                 print(Fore.RED + "Enter a number!")
                 continue
@@ -138,6 +152,9 @@ def main():
                 print(Fore.RED + "You do not have enough!")
             elif bet <= 0:
                 print(Fore.RED + "Bet must be more than 0!")
+
+        if not keep_playing:
+            break
 
         result, doubled = blackjack(deck)
 
@@ -155,6 +172,9 @@ def main():
             wins += 1
             chips += round(bet * 1.5)
 
+        if chips > highest:
+            highest = chips
+
         if chips == 0:
             print(Fore.RED + "\nYou are broke! Game over.")
             break
@@ -165,6 +185,7 @@ def main():
 
     divider()
     print(Fore.LIGHTMAGENTA_EX + f"Final: Wins: {wins} | Losses: {losses} | Draws: {tie}")
+    print(Fore.LIGHTMAGENTA_EX + f"Total Chips: {chips} | Most: {highest}")
     print("Thanks for playing!")
 
 if __name__ == "__main__":
