@@ -13,6 +13,19 @@ class Card:
         else:
             return int(self.rank)
 
+    def draw(self):
+        suits = {"Hearts": "♥", "Diamonds": "♦", "Clubs": "♣", "Spades": "♠"}  # NEW: dictionary lookup
+        symbol = suits[self.suit]
+
+        lines = [                             
+            "┌─────────┐",
+            f"│ {self.rank}       │",
+            f"│    {symbol}    │",
+            f"│       {self.rank} │",
+            "└─────────┘",
+        ]
+        return lines
+    
     def __str__(self):
         return f"{self.rank} of {self.suit}"
 

@@ -1,5 +1,5 @@
 from colorama import Fore, init
-from hand import Deck, Hand
+from hand import Card, Deck, Hand
 
 init(autoreset=True)
 
