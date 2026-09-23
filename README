@@ -1,0 +1,21 @@
+# Blackjack
+
+A simple text-based Blackjack game in Python, played in the terminal.
+
+## Features
+
+- Betting with chips
+- Hit, Stand, or Double Down
+- Blackjack pays 3:2
+- Tracks your wins, losses, and draws
+
+## How to Run
+
+```bash
+pip install colorama
+python main.py
+```
+
+## How to Play
+
+Enter your starting chips and place a bet. Then choose `H` to hit, `S` to stand, or `D` to double down (first turn only). Get closer to 21 than the dealer without going over. Press `Q` when betting to quit.
