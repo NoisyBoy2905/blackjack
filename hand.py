@@ -17,14 +17,23 @@ class Card:
         suits = {"Hearts": "♥", "Diamonds": "♦", "Clubs": "♣", "Spades": "♠"}  # NEW: dictionary lookup
         symbol = suits[self.suit]
 
-        lines = [                             
-            "┌─────────┐",
-            f"│ {self.rank}       │",
-            f"│    {symbol}    │",
-            f"│       {self.rank} │",
-            "└─────────┘",
-        ]
-        return lines
+        if self.rank == "10":
+            return [                             
+                    "┌─────────┐",
+                    f"│ {self.rank}      │",
+                    f"│    {symbol}    │",
+                    f"│      {self.rank} │",
+                    "└─────────┘",
+                ]
+        else: 
+            return [                             
+                    "┌─────────┐",
+                    f"│ {self.rank}       │",
+                    f"│    {symbol}    │",
+                    f"│       {self.rank} │",
+                    "└─────────┘",
+                ]
+
     
     def __str__(self):
         return f"{self.rank} of {self.suit}"
