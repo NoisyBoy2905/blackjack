@@ -10,7 +10,8 @@ def clear_screen():
     print("\033[H\033[J", end="")
 
 def show_hand(name, hand, total):
-    print(f"{name}: {hand} | Total: {total}")
+    print(f"{name}: Total: {total}")
+    hand.draw_hand()
 
 def blackjack(deck):
 

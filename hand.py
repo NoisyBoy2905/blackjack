@@ -96,5 +96,11 @@ class Hand:
     def __getitem__(self, index):
         return self.cards[index]
 
+    def draw_hand(self):
+        card_lines = [card.draw() for card in self.cards]   
+        for i in range(5):
+            line = " ".join(card[i] for card in card_lines) 
+            print(line)
+
 
 
